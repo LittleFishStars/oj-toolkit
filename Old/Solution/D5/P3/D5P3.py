@@ -1,0 +1,6 @@
+n = int(input())
+nums = list(map(int, input().split()))
+odds = sorted(x for x in nums if x % 2 == 1)
+evens = sorted((x for x in nums if x % 2 == 0), reverse=True)
+print(" ".join(map(str, odds)))
+print(" ".join(map(str, evens)))

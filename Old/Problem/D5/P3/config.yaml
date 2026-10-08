@@ -1,0 +1,11 @@
+type: default
+time: 10ms
+memory: 1m
+checker_type: default
+langs:
+  - c
+  - py.py3
+time_limit_rate:
+  py.py3: 10
+memory_limit_rate:
+  py.py3: 10

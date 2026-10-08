@@ -1,0 +1,26 @@
+# 题目类型，可以为 default(比对输出，可以含spj), objective(客观题), interactive(交互题)
+type: default
+
+# 全局时空限制（此处的限制优先级低于测试点的限制）
+time: 10ms
+memory: 1m
+
+# 此部分设置当题目类型为 default 时生效
+# 比较器类型，支持的值有 default（直接比对，忽略行末空格和文件末换行）, ccr, cena, hustoj, lemon, qduoj, syzoj, testlib(比较常用)
+checker_type: default
+
+# 提交语言限制
+# 列举出所有本题允许使用的语言对应的代码（需要和评测机 lang.yaml 内的语言代码相同）
+# 使用语言ID而非名称！对于有子类的选项，请详细至子分类！
+langs:
+  - c
+  - py.py3
+
+# 时间内存倍率
+# 对某语言设置时间或内存倍率（需要和评测机 lang.yaml 内的语言代码相同）
+# 部分语言默认已存在倍率，请前往控制面板中查看！
+# 使用语言ID而非名称！对于有子类的选项，请详细至子分类！
+time_limit_rate:
+  py.py3: 10
+memory_limit_rate:
+  py.py3: 10

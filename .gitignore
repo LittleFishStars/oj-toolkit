@@ -1,0 +1,13 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+# 编辑器与系统文件
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+.Trash-0/
+.workbuddy/
