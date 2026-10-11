@@ -53,7 +53,7 @@ uv run python gen_solution_md.py --day W1D1
 ```
 
 ## Generating day READMEs
-`gen_day_readme.py` writes a `README.md` intro (day theme + problem table) into each day dir under `Problem/`. Day themes live in its `DAY_INTRO` dict — add an entry when creating a new day. These READMEs are local documentation only; `pack.py` does not include them in zips.
+`gen_day_readme.py` writes a `README.md` intro (day theme + problem table) into each day dir under `Problem/`. Day themes live in its `DAY_INTRO` dict — add an entry when creating a new day. Keys are full day ids (`W1D1`, `W2D1`) so the same `Dn` name can repeat across weeks (a bare `D1` key still works as a fallback). These READMEs are local documentation only; `pack.py` does not include them in zips.
 
 ```
 uv run python gen_day_readme.py            # all days

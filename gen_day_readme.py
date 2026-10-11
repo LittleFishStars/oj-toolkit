@@ -10,14 +10,17 @@
 import argparse
 from pathlib import Path
 
+# 键用完整天号（W1D1、W2D1），兼容旧的单天名键（D1）
 DAY_INTRO = {
-    "D1": ("输出与输入入门", "认识 print 与 input：从 Hello World 开始，学会固定输出、读入数据，并用 f-string 拼出第一句问候。"),
-    "D2": ("输入与运算", "练习整数与小数的输入和四则运算，掌握整除 // 与取余 %，学会用 f-string 保留指定位小数。"),
-    "D3": ("分支语句基础", "if/else 二选一：用比较运算和取余写出条件判断，解决年龄、奇偶、最值和简易计算器问题。"),
-    "D4": ("多分支与逻辑运算", "elif 多分支链与 and/or 逻辑组合，处理成绩等级、闰年、三角形类型和 BMI 这类多条件场景。"),
-    "D5": ("分支与数据类型综合", "把字符串、列表、元组、字典请进 if 里：切片比较回文、sorted 排序去重、in 判季节、字典做查询。"),
-    "D6": ("综合挑战", "小型实战：读题 + 把规则翻译成条件。石头剪刀布、字符统计、日期合法性、分段计费，难度逐题递进。"),
-    "D7": ("数据类型大综合", "一题一个数据类型收官战：元组解包交换、列表内置函数、集合交集、布尔逻辑与多分支定价。"),
+    "W1D1": ("输出与输入入门", "认识 print 与 input：从 Hello World 开始，学会固定输出、读入数据，并用 f-string 拼出第一句问候。"),
+    "W1D2": ("输入与运算", "练习整数与小数的输入和四则运算，掌握整除 // 与取余 %，学会用 f-string 保留指定位小数。"),
+    "W1D3": ("分支语句基础", "if/else 二选一：用比较运算和取余写出条件判断，解决年龄、奇偶、最值和简易计算器问题。"),
+    "W1D4": ("多分支与逻辑运算", "elif 多分支链与 and/or 逻辑组合，处理成绩等级、闰年、三角形类型和 BMI 这类多条件场景。"),
+    "W1D5": ("分支与数据类型综合", "把字符串、列表、元组、字典请进 if 里：切片比较回文、sorted 排序去重、in 判季节、字典做查询。"),
+    "W1D6": ("综合挑战", "小型实战：读题 + 把规则翻译成条件。石头剪刀布、字符统计、日期合法性、分段计费，难度逐题递进。"),
+    "W1D7": ("数据类型大综合", "一题一个数据类型收官战：元组解包交换、列表内置函数、集合交集、布尔逻辑与多分支定价。"),
+    "W2D1": ("循环入门：for 与 while", "第一次用循环解决问题：for 与 while 完成累加、累乘、数位拆解，再用嵌套循环打印九九乘法表。"),
+    "W2D2": ("循环进阶：拆位、递推与图形", "把循环用在数字和图形上：while 倒着数与数字反转、循环递推斐波那契数列、嵌套循环打印等腰三角形。"),
 }
 
 
@@ -33,13 +36,15 @@ def parse_problem_yaml(path: Path) -> dict:
 
 def gen_day_readme(day_dir: Path, problem_root: Path) -> bool:
     day_name = day_dir.name
-    if day_name not in DAY_INTRO:
-        print(f"SKIP {day_dir}: DAY_INTRO 中没有 {day_name} 的主题信息")
-        return False
-
     week_name = day_dir.parent.name
     day_id = f"{week_name}{day_name}"  # 如 W1D1
-    title, intro = DAY_INTRO[day_name]
+
+    intro_entry = DAY_INTRO.get(day_id) or DAY_INTRO.get(day_name)
+    if intro_entry is None:
+        print(f"SKIP {day_dir}: DAY_INTRO 中没有 {day_id} 的主题信息")
+        return False
+
+    title, intro = intro_entry
     rows = []
     for problem_dir in sorted(p for p in day_dir.iterdir() if p.is_dir()):
         yaml_path = problem_dir / "problem.yaml"
