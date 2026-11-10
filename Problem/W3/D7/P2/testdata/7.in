@@ -1,0 +1,11 @@
+10
+add tool bread 764 31 1
+sell bread 142
+report
+add food hammer 822 801 338
+sell hammer 265
+sell hammer 326
+add tool nails 254 184 1
+report
+add food nailsx 114 78 250
+report

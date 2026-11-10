@@ -1,0 +1,8 @@
+title: 可迭代的等差序列
+tag:
+- 魔法方法
+- __iter__
+- __len__
+- __getitem__
+- 生成器函数
+pid: W3D7P3

@@ -1,0 +1,11 @@
+10
+add food juice 844 86 243
+add tool nails 649 114 0
+add food rope 586 393 274
+report
+add food juicex 978 675 183
+add food bread 71 921 22
+report
+sell bread 981
+add tool hammer 449 856 1
+sell rope 476

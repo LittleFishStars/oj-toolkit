@@ -1,0 +1,11 @@
+10
+add tool milk 755 24 0
+report
+add food apple 182 115 158
+add food rope 825 128 314
+report
+sell milk 680
+add food bread 530 545 203
+add tool hammer 150 186 1
+report
+add tool juice 699 811 1

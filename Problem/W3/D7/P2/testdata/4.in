@@ -1,0 +1,6 @@
+5
+add food f 100 10 1
+add food g 100 10 1
+report
+sell f 100
+report
